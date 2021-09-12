@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+h2{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+li{
+	border-style: groove;
+	height: 20px;
+	list-style: none;
+}
+
+button{
+	background-color: #1d195e;
+	color: white;
+}

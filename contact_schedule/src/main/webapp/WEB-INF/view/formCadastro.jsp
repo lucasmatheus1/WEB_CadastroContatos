@@ -6,21 +6,59 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cadastro</title>
+
+<style>
+	body{
+		background-color: #c4e0f5;
+	}
+	
+	div{
+		text-align: center;
+		margin: 0 auto;
+		width: 50%;
+	}
+	
+	div h2{
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+	input{
+		width: 300px;
+		height: 30px; 
+		border-radius: 5px;
+	}
+	
+	button{
+		border-radius: 10px;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		height: 30px; 
+		background-color: red;
+		color: white;
+	}
+	
+	
+</style>
+
+
 </head>
 <body>
 
-	<h1>Cadastro</h1>
+<div>
+<h2>Cadastro</h2>
 
 	<form action="${linkEntradaServlet }" method="post">
 	
-		Nome: <input type="text" name="nome"  />
-		E-mail: <input type="text" name="email"  />
-		Senha: <input type="password" name="senha"  />
+		<input type="text" name="nome" placeholder="Nome" /> <br><br>
+		<input type="text" name="email" placeholder="E-mail" /> <br><br>
+		<input type="password" name="senha" placeholder="Senha" /> <br><br>
 		
-		<input type="hidden" name="acao" value="Cadastro">
+		<input type="hidden" name="acao" value="Cadastro"> 
 	
-		<input type="submit" value="Cadastrar"/>
+		<button type="submit">Cadastrar</button>
 	</form>
+</div>
+
+	
 
 </body>
 </html>

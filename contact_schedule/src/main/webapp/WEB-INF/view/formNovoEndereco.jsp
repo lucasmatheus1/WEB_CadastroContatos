@@ -6,25 +6,63 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Adicionar endereço</title>
+
+<style>
+	body{
+		background-color: #c4e0f5;
+	}
+	
+	div{
+		text-align: center;
+		margin: 0 auto;
+		width: 50%;
+	}
+	
+	div h2{
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+	input{
+		width: 300px;
+		height: 30px; 
+		border-radius: 5px;
+	}
+	
+	button{
+		border-radius: 10px;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		height: 30px; 
+		background-color: red;
+		color: white;
+	}
+	
+	
+</style>
+
 </head>
 <body>
-	
-	<h1>Cadastro de endereço</h1>
-	<h2>Dados Endereço</h2>
+
+<div>
+<h2>Cadastro de endereço</h2>
+	<h3>Dados Endereço</h3>
 	<form action="${linkEntradaServlet }" method="post">
 			
 		
-		Rua: <input type="text" name="rua"  /> <br><br>
-		Número: <input type="number" name="numero"  /> <br><br>
-		Complemento: <input type="text" name="complemento"  /> <br><br>
-		Bairro: <input type="text" name="bairro"  /> <br><br>
-		CEP: <input type="text" name="cep"  /> <br><br>
-		Cidade: <input type="text" name="cidade"  /> <br><br>
-		Estado: <input type="text" name="estado"  /> <br><br><br>
+		<input type="text" placeholder="Rua" name="rua"  /> <br><br>
+		<input type="number" placeholder="Número" name="numero"  /> <br><br>
+		<input type="text" placeholder="Complemento" name="complemento"  /> <br><br>
+		<input type="text" placeholder="Bairro" name="bairro"  /> <br><br>
+		<input type="text" placeholder="CEP" name="cep"  /> <br><br>
+		<input type="text" placeholder="Cidade" name="cidade"  /> <br><br>
+		<input type="text" placeholder="Estado" name="estado"  /> <br><br><br>
 		
 	
 		<input type="hidden" name="acao" value="NovoEndereco">
-		<input type="submit" value="Cadastrar" />
+		<button type="submit">Cadastrar</button>
+		
 	</form>
+</div>
+	
+	
 </body>
 </html>

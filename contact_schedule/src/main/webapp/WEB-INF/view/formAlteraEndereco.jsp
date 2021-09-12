@@ -9,26 +9,65 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Alterar Endereço</title>
+
+<style>
+	body{
+		background-color: #c4e0f5;
+	}
+	
+	div{
+		text-align: center;
+		margin: 0 auto;
+		width: 50%;
+	}
+	
+	div h2{
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+	input{
+		width: 300px;
+		height: 30px; 
+		border-radius: 5px;
+	}
+	
+	button{
+		border-radius: 10px;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		height: 30px; 
+		background-color: red;
+		color: white;
+	}
+	
+	
+</style>
+
+
 </head>
 <body>
 
-	<h1>Editar Endereço</h1>
+<div>
+<h2>Editar Endereço</h2>
 
 	<form action="${linkEntradaServlet }" method="post">
 	
-		Rua: <input type="text" name="rua"  value="${endereco.rua }"/> <br><br>
-		Número: <input type="number" name="numero"  value="${endereco.numero }"/> <br><br>
-		Complemento: <input type="text" name="complemento"  value="${endereco.complemento }"/> <br><br>
-		Bairro: <input type="text" name="bairro"  value="${endereco.bairro }"/> <br><br>
-		CEP: <input type="text" name="cep"  value="${endereco.cep }"/> <br><br>
-		Cidade: <input type="text" name="cidade"  value="${endereco.cidade }"/> <br><br>
-		Estado: <input type="text" name="estado"  value="${endereco.estado }"/> <br><br><br>
+		<input type="text" name="rua" placeholder="Rua" value="${endereco.rua }"/> <br><br>
+		<input type="number" placeholder="Número" name="numero"  value="${endereco.numero }"/> <br><br>
+		<input type="text" placeholder="Complemento" name="complemento"  value="${endereco.complemento }"/> <br><br>
+		<input type="text" placeholder="Bairro" name="bairro"  value="${endereco.bairro }"/> <br><br>
+		<input type="text" placeholder="CEP" name="cep"  value="${endereco.cep }"/> <br><br>
+		<input type="text" placeholder="Cidade" name="cidade"  value="${endereco.cidade }"/> <br><br>
+		<input type="text" placeholder="Estado" name="estado"  value="${endereco.estado }"/> <br><br><br>
 				
 		
 		<input type="hidden" name="id" value="${endereco.id }">
 		<input type="hidden" name="acao" value="EditarEndereco">
-		<input type="submit" value="Salvar"/>
+				
+		<button type="submit">Salvar</button>
 	</form>
+</div>
+
+	
 
 </body>
 </html>
