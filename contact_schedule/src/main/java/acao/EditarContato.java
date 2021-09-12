@@ -1,7 +1,6 @@
 package acao;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,25 +8,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Contato;
 import model.Database;
-import model.Usuario;
 
-public class Cadastro implements acao {
+public class EditarContato implements acao {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		String paramId = request.getParameter("id");
+		Integer id = Integer.valueOf(paramId);
+		
 		String nome = request.getParameter("nome");
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+		String rg = request.getParameter("rg");
+		String cpf = request.getParameter("cpf");
 		
-		Usuario user = new Usuario(nome, email, senha, new ArrayList<Contato>());
-				
 		Database database = Database.getInstante();
-		database.adicionarUsuario(user);
+		Contato contato = database.buscaContatoPeloId(id);
+		contato.setCpf(cpf);
+		contato.setNome(nome);
+		contato.setRg(rg);
 		
-		return "redirect:entrada?acao=LoginForm";
+		request.setAttribute("contato", contato);
 		
+		return "redirect:entrada?acao=Dashboard";
 	}
 
 }

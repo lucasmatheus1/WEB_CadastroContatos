@@ -7,21 +7,27 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import model.Contato;
 import model.Database;
+import model.Endereco;
 
-public class Dashboard implements acao {
+public class Dashboard2 implements acao {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Database database = Database.getInstante();
+		String paramId = request.getParameter("id");
+		Integer id = Integer.valueOf(paramId);
 		
-		List<Contato> contatos = database.user.getContatos();
-		request.setAttribute("contatos", contatos);
-		return "forward:dashboard.jsp";
+		Database database = Database.getInstante();
+		database.idContato = id;
+		System.out.println("ID: " + id);
+		List<Endereco> enderecos = database.buscaContatoPeloId(id).getEnderecos();
+		request.setAttribute("enderecos", enderecos);
+		request.setAttribute("id", id);
+		
+	
+		return "forward:dashboard2.jsp";
 	}
 
 }

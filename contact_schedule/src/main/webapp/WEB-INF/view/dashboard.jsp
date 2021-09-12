@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.List, model.ContactModel"%>
+<%@ page import="java.util.List,model.Contato"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -13,14 +13,16 @@
 <body>
 	
 	Contatos: <br />
+	<br />
+	<a href="/contact_schedule/entrada?acao=NovoContatoForm">Adicionar</a>
 	
 	<ul>
 		<c:forEach items="${contatos}" var="contato">
 			
 			<li>
-				${contato.name }
-				<a href="/contact_schedule/entrada?acao=EditarContato&id=${contato.id }">editar</a>
-				<a href="/contact_schedule/entrada?acao=EditarEndereco&id=${contato.id }">endereços</a>
+				${contato.nome }
+				<a href="/contact_schedule/entrada?acao=MostraContato&id=${contato.id }">editar</a>
+				<a href="/contact_schedule/entrada?acao=Dashboard2&id=${contato.id }">endereços</a>
 				<a href="/contact_schedule/entrada?acao=RemoveContato&id=${contato.id }">remover</a>
 						
 			</li>

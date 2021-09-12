@@ -1,27 +1,27 @@
 package acao;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import model.Contato;
 import model.Database;
 
-public class Dashboard implements acao {
+public class RemoveContato implements acao {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Database database = Database.getInstante();
+		String paramId = request.getParameter("id");
+		Integer id = Integer.valueOf(paramId);
 		
-		List<Contato> contatos = database.user.getContatos();
-		request.setAttribute("contatos", contatos);
-		return "forward:dashboard.jsp";
+		System.out.println("Remover contato: " + id);
+		
+		Database database = Database.getInstante();
+		database.removeContato(id);
+		return "redirect:entrada?acao=Dashboard";
 	}
 
 }

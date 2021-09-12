@@ -4,64 +4,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-	private static List<UserModel> listaUsuarios = new ArrayList<>();
-	private static List<ContactModel> listaContatos = new ArrayList<>();
-	private static Integer chaveSequencial = 1;
-	
-	static {
-		UserModel user = new UserModel("teste", "teste@teste.com", "teste");
-		listaUsuarios.add(user);
+
+	private static Database instance;
+
+
+	private List<Usuario> listaUsuarios = new ArrayList<>();
+	public Usuario user = null;
+	public Integer idContato;
+
+	private Database(){};
+
+	{
 		
-		List<AddressModel> listaEnderecos = new ArrayList<>();
-		
-		listaEnderecos.add(new AddressModel(
-				"Rua Pedro da Costa Agra",
-				237,
-				"F",
-				"Paraíba",
-				"Campina Grande",
-				"PB"
-				));
-		
-		listaEnderecos.add(new AddressModel(
-				"Rua Pedro",
-				2327,
-				"F",
-				"Pdsada",
-				"Cadsadna Grande",
-				"sddsB"
-				));
-		
-		ContactModel contato = new ContactModel(
-				chaveSequencial, 
-				"Moabe Barbosa", 
-				12312312, 
-				3123123, 
-				listaEnderecos
-				);
-		
-		listaContatos.add(contato);
+		List<Endereco> enderecos = new ArrayList<>();
+		enderecos.add(new Endereco("Rua Jose Vieira Lima", "50", "CC", "Presidente Medice", "5821383", "CG", "PB"));
+		enderecos.add(new Endereco("Rua Pedro da Costa Agra", "237", "CC", "José Pinheiro", "5840720", "CG", "PB"));
+
+		List<Contato> contatos = new ArrayList<>();
+		contatos.add(new Contato("Moabe", "11111111", "222222", enderecos));
+
+		Usuario usuario = new Usuario("Moabe", "teste", "teste", contatos);
+
+		adicionarUsuario(usuario);
+
 	}
 
-	public UserModel existeUsuario(String login, String senha) {
-		for(UserModel u : listaUsuarios) {
+
+	public static Database getInstante() {
+		if (instance == null) {
+			instance = new Database();
+		}
+
+		return instance;
+	}
+
+	public void adicionarUsuario(Usuario user) {
+		this.listaUsuarios.add(user);
+	}
+	
+	
+	public Usuario existeUsuario(String login, String senha) {
+		for(Usuario u : listaUsuarios) {
 			if(u.validarLogin(login, senha)) {
+				user = u;
 				return u;
 			}
 		}
 		return null;
 	}
 	
-	
-	public void adicionarUsuario(UserModel user) {
-		Database.listaUsuarios.add(user);
+
+	public Contato buscaContatoPeloId(Integer id) {
+		for(Contato contato : user.getContatos()) {
+			if(contato.getId() == id) {
+				return contato;
+			}
+		}
+		return null;
 	}
 	
-	public List<ContactModel> getContatos() {
-		return Database.listaContatos;
+	public void removeContato(Integer id) {
+		for(int i = 0; i < user.getContatos().size(); i++) {
+			if(user.getContatos().get(i).getId().equals(id)) user.getContatos().remove(i);
+		}
 	}
 	
-	public void adicionarContato(ContactModel contato) {
-		Database.listaContatos.add(contato);
-	}
 }

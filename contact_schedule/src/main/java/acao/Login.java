@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Database;
-import model.UserModel;
+import model.Usuario;
 
 public class Login implements acao {
 
@@ -20,8 +20,8 @@ public class Login implements acao {
 		
 		System.out.println("Logando " + login);
 		
-		Database database = new Database();
-		UserModel usuario = database.existeUsuario(login, senha);
+		Database database = Database.getInstante();
+		Usuario usuario = database.existeUsuario(login, senha);
 		
 		if(usuario != null) {
 			System.out.println("Logando existe");
