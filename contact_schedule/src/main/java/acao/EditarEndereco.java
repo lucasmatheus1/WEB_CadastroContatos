@@ -16,7 +16,6 @@ public class EditarEndereco implements acao {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println("AIIAIAIAIIAIAIAI");
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 		

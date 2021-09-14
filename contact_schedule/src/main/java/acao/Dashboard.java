@@ -13,15 +13,16 @@ import model.Database;
 
 public class Dashboard implements acao {
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		Database database = Database.getInstante();
-		
-		List<Contato> contatos = database.user.getContatos();
-		request.setAttribute("contatos", contatos);
-		return "forward:dashboard.jsp";
-	}
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Database database = Database.getInstante();
+
+        List<Contato> contatos = database.user.getContatos();
+        request.setAttribute("contatos", contatos);
+        request.setAttribute("email", database.user.getEmail());
+        return "forward:dashboard.jsp";
+    }
 
 }

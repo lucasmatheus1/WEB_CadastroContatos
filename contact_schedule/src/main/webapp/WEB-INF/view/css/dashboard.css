@@ -14,3 +14,12 @@ button{
 	background-color: #1d195e;
 	color: white;
 }
+
+.item{
+	margin-right: 10px;
+}
+
+.direita{
+	display: flex;
+	float: right; 
+}

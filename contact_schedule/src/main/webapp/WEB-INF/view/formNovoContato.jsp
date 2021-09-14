@@ -6,39 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Adicionar contato</title>
-
-<style>
-	body{
-		background-color: #c4e0f5;
-	}
-	
-	div{
-		text-align: center;
-		margin: 0 auto;
-		width: 50%;
-	}
-	
-	div h2{
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-	}
-	
-	input{
-		width: 300px;
-		height: 30px; 
-		border-radius: 5px;
-	}
-	
-	button{
-		border-radius: 10px;
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		height: 30px; 
-		background-color: red;
-		color: white;
-	}
-	
-	
-</style>
-
+<style><%@include file="\WEB-INF\view\css\campos.css"%></style>
 </head>
 <body>
 
@@ -64,6 +32,7 @@
 		
 		<input type="hidden" name="acao" value="NovoContato">
 		<button type="submit">Cadastrar</button>
+		<button type="button" name="back" onclick="history.back()">Voltar</button>
 	</form>
 </div>
 	

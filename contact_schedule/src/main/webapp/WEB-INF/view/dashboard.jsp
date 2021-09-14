@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List,model.Contato"%>
@@ -9,30 +10,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
-
-<style type="text/css">
-
-h2{
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-}
-
-li{
-	border-style: groove;
-	height: 20px;
-	list-style: none;
-}
-
-button{
-	background-color: #1d195e;
-	color: white;
-}
-
-</style>
-
+<style><%@include file="\WEB-INF\view\css\dashboard.css"%></style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 <body>
-
+<h1>${email}</h1>
 <div>
+
 <h2>CONTATOS </h2> 
 	
 	<a href="/contact_schedule/entrada?acao=NovoContatoForm"><button>Adicionar</button></a>
@@ -43,10 +27,29 @@ button{
 			<li>
 				${contato.nome }
 		
-		
-				<a href="/contact_schedule/entrada?acao=MostraContato&id=${contato.id }"><img alt="Editar" src="assets/images/edit.jpg"></a>
-				<a href="/contact_schedule/entrada?acao=Dashboard2&id=${contato.id }"><img alt="Endereços" src="assets/images/edit.jpg"></a>
-				<a href="/contact_schedule/entrada?acao=RemoveContato&id=${contato.id }"><img alt="Remover" src="assets/images/lixeira.jpg"></a>
+				<div class="direita">
+					<div class="item">
+						<a href="/contact_schedule/entrada?acao=MostraContato&id=${contato.id }">
+							<span style="color: Blue; aria-hidden="false"">
+							  <i class="fas fa-edit"></i>
+							</span>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/contact_schedule/entrada?acao=Dashboard2&id=${contato.id }">
+							<span style="color: Grey;">
+							  <i class="fas fa-envelope"></i>
+							</span>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/contact_schedule/entrada?acao=RemoveContato&id=${contato.id }">
+							<span style="color: Red;">
+							  <i class="fas fa-trash"></i>
+							</span>
+						</a>
+					</div>
+				</div>
 				
 			</li>
 		</c:forEach>
@@ -54,8 +57,7 @@ button{
 	
 	
 </div>
-	
-	
-	
 </body>
 </html>
+	
+	

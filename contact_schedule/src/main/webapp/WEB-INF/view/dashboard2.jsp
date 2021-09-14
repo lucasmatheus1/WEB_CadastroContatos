@@ -9,26 +9,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Lista Endereços</title>
-
-<style type="text/css">
-
-h2{
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-}
-
-li{
-	border-style: groove;
-	height: 20px;
-	list-style: none;
-}
-
-button{
-	background-color: #1d195e;
-	color: white;
-}
-
-</style>
-
+<style><%@include file="\WEB-INF\view\css\dashboard.css"%></style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 <body>
 
@@ -43,18 +25,30 @@ button{
 			<li>
 				${endereco.rua } ,
 				${endereco.numero }
-				<a href="/contact_schedule/entrada?acao=MostrarEndereco&id=${endereco.id }"><img alt="Editar" src="assets/images/edit.jpg"></a>
-				<a href="/contact_schedule/entrada?acao=RemoveEndereco&id=${endereco.id }"><img alt="Remover" src="assets/images/lixeira.jpg"></a>
 				
+				<div class="direita">
+					<div class="item">
+						<a href="/contact_schedule/entrada?acao=MostrarEndereco&id=${endereco.id}">
+							<span style="color: Blue;">
+							  <i class="fas fa-edit"></i>
+							</span>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/contact_schedule/entrada?acao=RemoveEndereco&id=${endereco.id}">
+							<span style="color: Red;">
+							  <i class="fas fa-trash"></i>
+							</span>
+						</a>
+					</div>
+				</div>
 						
 			</li>
 		</c:forEach>
 	</ul>
 </div>
 
-<button onClick="history.go(-1)">Voltar</button>
-	
-	
+<a href="/contact_schedule/entrada?acao=Dashboard"><button>Voltar</button></a>
 	
 </body>
 </html>

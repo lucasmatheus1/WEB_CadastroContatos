@@ -19,12 +19,12 @@ public class Database {
 		List<Endereco> enderecos = new ArrayList<>();
 		enderecos.add(new Endereco("Rua Jose Vieira Lima", "50", "CC", "Presidente Medice", "5821383", "CG", "PB"));
 		enderecos.add(new Endereco("Rua Pedro da Costa Agra", "237", "CC", "José Pinheiro", "5840720", "CG", "PB"));
-
+		
 		List<Contato> contatos = new ArrayList<>();
 		contatos.add(new Contato("Moabe", "11111111", "222222", enderecos));
 
 		Usuario usuario = new Usuario("Moabe", "teste", "teste", contatos);
-
+		
 		adicionarUsuario(usuario);
 
 	}
