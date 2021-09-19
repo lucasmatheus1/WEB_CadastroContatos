@@ -5,12 +5,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
-<style><%@include file="\WEB-INF\view\css\dashboard.css"%></style>
+<style><%@include file="\WEB-INF\view\css\dashboard.css"%></style> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 <body>

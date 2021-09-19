@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Lista Endereços</title>
-<style><%@include file="\WEB-INF\view\css\dashboard.css"%></style>
+<style><%@include file="\WEB-INF\view\css\dashboard.css"%></style> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 <body>
