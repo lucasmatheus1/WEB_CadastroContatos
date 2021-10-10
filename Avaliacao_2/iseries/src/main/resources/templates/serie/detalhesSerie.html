@@ -18,22 +18,13 @@
 
 <body>
     <h1 class="container">Lista de Séries</h1>
+    <h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
 
-    <table class="container">
-        <thead>
-            <tr>
-                <th>Nome</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr th:each="serie : ${series}">
-                <td><a th:href="${(#mvc.url('SC#detalhesSerie').arg(0, serie.id)).build()}"><span th:text="${serie.nome}"></span></a></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3 class="container"><a href="/cadastrarSerie" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Série</a></h3>
+    <div th:each="serie : ${serie}" class="container">
+        <div class="row">
+            <p>Nome: <span th:text="${serie.nome}"></span></p>
+        </div>
+    </div>
 
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

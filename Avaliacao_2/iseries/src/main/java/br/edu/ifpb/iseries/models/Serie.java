@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Series implements Serializable {
+public class Serie implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,21 +15,21 @@ public class Series implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    private String nome;
 
     public long getId() {
         return id;
     }
 
-    public void setId(long codigo) {
-        this.id = codigo;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
 
 <head>
     <title>iSeries</title>
@@ -14,15 +14,29 @@
 </head>
 
 <body>
-    <h1>Adicionar Séries:</h1>
-
+    <h1 class="container">Adicionar Séries:</h1>
+    <h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
+    <br/>
     <form class="container" method="post">
-        Nome: <input type="text" value="" name="name"/>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" value="" name="nome"/>
+                <label class="active">Nome</label>
+            </div>
+            <div class="input-field col s3">
+                <input type="number" value="" name="temporadas"/>
+                <label class="active">Nº Temporadas</label>
+            </div>
+            <div class="input-field col s3">
+                <input type="number" value="" name="episodios"/>
+                <label class="active">Episódios por Temporada</label>
+            </div>
+        </div>
 
         <button class="waves-effect waves-light btn" type="submit">Salvar</button>
-
     </form>
 
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
