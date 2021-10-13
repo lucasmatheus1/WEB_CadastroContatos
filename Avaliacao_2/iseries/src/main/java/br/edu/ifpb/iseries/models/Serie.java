@@ -1,10 +1,8 @@
 package br.edu.ifpb.iseries.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Serie implements Serializable {
@@ -16,6 +14,13 @@ public class Serie implements Serializable {
     private long id;
 
     private String nome;
+
+    private int qtdTemporadas;
+
+    private int qtdEpisodios;
+
+    @OneToMany
+    private List<Temporada> temporadas;
 
     public long getId() {
         return id;
@@ -31,5 +36,40 @@ public class Serie implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getQtdTemporadas() {
+        return qtdTemporadas;
+    }
+
+    public void setQtdTemporadas(int qtdTemporadas) {
+        this.qtdTemporadas = qtdTemporadas;
+    }
+
+    public int getQtdEpisodios() {
+        return qtdEpisodios;
+    }
+
+    public void setQtdEpisodios(int qtdEpisodios) {
+        this.qtdEpisodios = qtdEpisodios;
+    }
+
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(List<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+
+    @Override
+    public String toString() {
+        return "Serie{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", qtdTemporadas=" + qtdTemporadas +
+                ", qtdEpisodios=" + qtdEpisodios +
+                ", temporadas=" + temporadas +
+                '}';
     }
 }

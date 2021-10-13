@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
 
 <head>
     <title>iSeries</title>
@@ -17,14 +16,26 @@
 
 
 <body>
-    <h1 class="container">Lista de Séries</h1>
+    <h1 class="container"><span th:text="${serie.nome}"></span></h1>
+    <br>
     <h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
 
-    <div th:each="serie : ${serie}" class="container">
-        <div class="row">
-            <p>Nome: <span th:text="${serie.nome}"></span></p>
-        </div>
-    </div>
+    <br><br>
+    <table class="container">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Episódios</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="temporada : ${temporadas}">
+                <td><a th:href="${(#mvc.url('SC#detalhesEpisodio').arg(0, temporada.id)).build()}"><span th:text="${temporada.nome}"></span></a></td>
+                <td><a>8/8</a></td>
+            </tr>
+        </tbody>
+    </table>
 
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
