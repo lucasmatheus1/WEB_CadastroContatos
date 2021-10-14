@@ -12,6 +12,7 @@ public class Temporada {
 
     private String nome;
 
+    private String qtdAssistiu;
 
     @ManyToOne
     private Serie serie;
@@ -60,6 +61,14 @@ public class Temporada {
 
     public void setEpisodios(List<Episodio> episodios) {
         this.episodios = episodios;
+    }
+
+    public String getQtdAssistiu() {
+        return qtdAssistiu;
+    }
+
+    public void setQtdAssistiu(String qtdAssistiu) {
+        this.qtdAssistiu = qtdAssistiu;
     }
 
     @Override

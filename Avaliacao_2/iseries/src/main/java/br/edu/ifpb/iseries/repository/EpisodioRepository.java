@@ -7,4 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface EpisodioRepository extends CrudRepository<Episodio, String> {
 
     Iterable<Episodio> findByTemporada(Temporada temporada);
+
+    Episodio findById(long id);
 }

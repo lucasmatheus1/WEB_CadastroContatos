@@ -24,7 +24,7 @@
     <table class="container">
         <thead>
         <tr>
-            <th></th>
+            <th>Nome da Temporada</th>
             <th>Episódios</th>
         </tr>
         </thead>
@@ -32,7 +32,7 @@
         <tbody>
             <tr th:each="temporada : ${temporadas}">
                 <td><a th:href="${(#mvc.url('SC#detalhesEpisodio').arg(0, temporada.id)).build()}"><span th:text="${temporada.nome}"></span></a></td>
-                <td><a>8/8</a></td>
+                <td style="padding: 2px; background: #00acc1"  th:text="${temporada.qtdAssistiu}"></td>
             </tr>
         </tbody>
     </table>

@@ -14,14 +14,8 @@ public class Episodio {
     @ManyToOne
     private Temporada temporada;
 
-    public Episodio(String nome, Temporada temporada) {
-        this.nome = nome;
-        this.temporada = temporada;
-    }
+    private String assistiu;
 
-    public Episodio() {
-
-    }
 
     public long getId() {
         return id;
@@ -47,12 +41,21 @@ public class Episodio {
         this.temporada = temporada;
     }
 
+    public String getAssistiu() {
+        return assistiu;
+    }
+
+    public void setAssistiu(String assistiu) {
+        this.assistiu = assistiu;
+    }
+
     @Override
     public String toString() {
         return "Episodio{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", temporada=" + temporada +
+                ", assistiu='" + assistiu + '\'' +
                 '}';
     }
 }
