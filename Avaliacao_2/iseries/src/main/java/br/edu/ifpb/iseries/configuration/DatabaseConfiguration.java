@@ -1,4 +1,4 @@
-package br.edu.ifpb.iseries.database;
+package br.edu.ifpb.iseries.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,9 +1,12 @@
 package br.edu.ifpb.iseries.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Episodio {
+public class Episodio implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -15,7 +18,6 @@ public class Episodio {
     private Temporada temporada;
 
     private String assistiu;
-
 
     public long getId() {
         return id;

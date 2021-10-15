@@ -19,8 +19,11 @@ public class Serie implements Serializable {
 
     private int qtdEpisodios;
 
-    @OneToMany
+    @OneToMany(mappedBy="serie", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Temporada> temporadas;
+
+    @ManyToOne
+    private User user;
 
     public long getId() {
         return id;
@@ -60,6 +63,14 @@ public class Serie implements Serializable {
 
     public void setTemporadas(List<Temporada> temporadas) {
         this.temporadas = temporadas;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

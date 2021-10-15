@@ -1,10 +1,13 @@
 package br.edu.ifpb.iseries.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Temporada {
+public class Temporada implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,7 +20,7 @@ public class Temporada {
     @ManyToOne
     private Serie serie;
 
-    @OneToMany
+    @OneToMany(mappedBy="temporada", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Episodio> episodios;
 
     public Temporada(String nome, Serie serie) {

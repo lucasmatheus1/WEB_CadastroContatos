@@ -26,13 +26,17 @@
         <tr>
             <th>Nome da Temporada</th>
             <th>Episódios</th>
+            <th>Editar</th>
+            <th>Deletar</th>
         </tr>
         </thead>
 
         <tbody>
             <tr th:each="temporada : ${temporadas}">
-                <td><a th:href="${(#mvc.url('SC#detalhesEpisodio').arg(0, temporada.id)).build()}"><span th:text="${temporada.nome}"></span></a></td>
-                <td style="padding: 2px; background: #00acc1"  th:text="${temporada.qtdAssistiu}"></td>
+                <td><a th:href="${(#mvc.url('TC#detalhesEpisodio').arg(0, temporada.id)).build()}"><span th:text="${temporada.nome}"></span></a></td>
+                <td th:text="${temporada.qtdAssistiu}"></td>
+                <td><a th:href="${(#mvc.url('TC#editarTemporada').arg(0, temporada.id)).build()}"><span><i class="material-icons">edit</i></span></a></td>
+                <td><a th:href="${(#mvc.url('TC#deletarTemporada').arg(0, temporada.id)).build()}"><span><i class="material-icons">delete</i></span></a></td>
             </tr>
         </tbody>
     </table>

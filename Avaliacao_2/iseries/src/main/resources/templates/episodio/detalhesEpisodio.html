@@ -28,6 +28,8 @@
             <tr>
                 <th>Nome do EP</th>
                 <th>Assistiu?</th>
+                <th>Editar</th>
+                <th>Deletar</th>
             </tr>
             </thead>
 
@@ -54,6 +56,8 @@
                         </div>
                     </div>
                 </td>
+                <td><a th:href="${(#mvc.url('EC#editarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons">edit</i></span></a></td>
+                <td><a th:href="${(#mvc.url('EC#deletarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons">delete</i></span></a></td>
             </tr>
             </tbody>
 
