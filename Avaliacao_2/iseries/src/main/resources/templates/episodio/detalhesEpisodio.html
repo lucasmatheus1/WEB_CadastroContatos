@@ -16,13 +16,44 @@
 
 
 <body>
-    <!--<h1 class="container"><span th:text="${temporda.nome}"></span></h1>-->
-    <!--<br>-->
-    <h3 class="center"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
+
+    <header>
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#" class="brand-logo center">iSeries</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <form th:action="@{/logout}" method="post">
+                            <button class="waves-effect waves-light btn" type="submit">
+                                SAIR</button>
+                        </form>
+                    </li>
+                    <li><a href="collapsible.html"></a></li>
+                    <li><a href="collapsible.html"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h2 class="center">
+        <a href="/series" class="waves-effect waves-light btn">
+            <i class="material-icons left">
+                format_list_bulleted
+            </i>
+            Lista de Séries
+        </a>
+        <a th:href="${(#mvc.url('EC#adicionarEpisodio').arg(0, temporada.id)).build()}" class="waves-effect waves-light btn">
+            <i class="material-icons left">
+                add_circle_outline
+            </i>
+            Adicionar Episódio
+        </a>
+
+    </h2>
 
     <br>
 
-    <form class="container" method="post">
+    <form class="container center-align" method="post">
         <table class="container">
             <thead>
             <tr>
@@ -60,10 +91,9 @@
                 <td><a th:href="${(#mvc.url('EC#deletarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons">delete</i></span></a></td>
             </tr>
             </tbody>
-
-
         </table>
-        <button class="waves-effect waves-light btn" type="submit">Salvar</button>
+        <br>
+        <h4 class="center" ><button class="waves-effect waves-light btn " type="submit">Salvar</button></h4>
 
     </form>
 

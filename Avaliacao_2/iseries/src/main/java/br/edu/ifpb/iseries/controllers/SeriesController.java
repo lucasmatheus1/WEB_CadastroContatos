@@ -77,7 +77,7 @@ public class SeriesController {
         serie.setUser(user);
         seriesRepository.save(serie);
 
-        return "redirect:/cadastrarSerie";
+        return "redirect:/series";
     }
 
     @RequestMapping("/series")
@@ -100,6 +100,32 @@ public class SeriesController {
         return mv;
     }
 
+    @RequestMapping(value = "/serie{id}", method = RequestMethod.POST)
+    public String adicionarTemporada(Serie serie,String nome, String qtdEpisodios) {
+        Serie serieBD = seriesRepository.findById(serie.getId());
+
+        Temporada temporada = new Temporada();
+        temporada.setSerie(serieBD);
+        temporada.setNome(nome);
+        temporada.setQtdAssistiu("0/"+qtdEpisodios);
+        temporadaRepository.save(temporada);
+
+        List<Episodio> episodios = new ArrayList<>();
+        for (int j = 0; j < Integer.parseInt(qtdEpisodios); j++){
+            Episodio episodio = new Episodio();
+            episodio.setNome("Episódio " + (j+1));
+            episodio.setTemporada(temporada);
+            episodio.setAssistiu("false");
+            episodioRepository.save(episodio);
+            episodios.add(episodio);
+        }
+
+        temporada.setEpisodios(episodios);
+        temporadaRepository.save(temporada);
+
+        return "redirect:/serie" + serie.getId();
+    }
+
     @RequestMapping(value = "/editarSerie{id}", method = RequestMethod.GET)
     public ModelAndView editarSerie(@PathVariable("id") long id) {
         Serie serie = seriesRepository.findById(id);
@@ -119,11 +145,9 @@ public class SeriesController {
     @RequestMapping("/deletar")
     public String deletarSerie(long id) {
         Serie serie = seriesRepository.findById(id);
-
         seriesRepository.delete(serie);
         return "redirect:/series";
     }
-
 
 
 }

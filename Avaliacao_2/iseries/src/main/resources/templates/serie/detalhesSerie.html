@@ -12,13 +12,39 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 </head>
 
-
 <body>
-    <h1 class="container"><span th:text="${serie.nome}"></span></h1>
+
+    <header>
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#" class="brand-logo center">iSeries</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <form th:action="@{/logout}" method="post">
+                            <button class="waves-effect waves-light btn" type="submit">
+                                SAIR</button>
+                        </form>
+                    </li>
+                    <li><a href="collapsible.html"></a></li>
+                    <li><a href="collapsible.html"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <br>
-    <h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
+    <h2 class="container"><span th:text="${serie.nome}"></span></h2>
+    <br>
+    <h3 class="container">
+        <a href="/series" class="waves-effect waves-light btn">
+            <i class="material-icons left">
+                format_list_bulleted
+            </i>
+            Lista de Séries
+        </a>
+    </h3>
 
     <br><br>
     <table class="container">
@@ -40,6 +66,33 @@
             </tr>
         </tbody>
     </table>
+
+    <br> <br> <br>
+    <hr class="container" color="*dcdcdc">
+    <br> <br> <br>
+    <h4 class="container">Adicionar Temporada</h4>
+    <br>
+    <form class="container" method="post">
+        <div class="row">
+            <div class="input-field col s4">
+                <input type="text" value="" name="nome"/>
+                <label class="active">Nome da Temporada:</label>
+            </div>
+            <div class="input-field col s3">
+                <input type="number" value="" name="qtdEpisodios"/>
+                <label class="active">Nº Episódios:</label>
+            </div>
+            <div class="input-field col s5">
+                <button class="waves-effect waves-light btn" type="submit">
+                    <i class="material-icons left">
+                        add_circle_outline
+                    </i>
+                    Adicionar Temporada</button>
+            </div>
+        </div>
+
+
+    </form>
 
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

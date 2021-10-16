@@ -1,6 +1,7 @@
 package br.edu.ifpb.iseries.controllers;
 
 import br.edu.ifpb.iseries.models.Episodio;
+import br.edu.ifpb.iseries.models.Serie;
 import br.edu.ifpb.iseries.models.Temporada;
 import br.edu.ifpb.iseries.repository.EpisodioRepository;
 import br.edu.ifpb.iseries.repository.TemporadaRepository;
@@ -74,7 +75,7 @@ public class TemporadaController {
         temporada.setQtdAssistiu(cont +"/"+episodios.size());
         temporadaRepository.save(temporada);
 
-        return "redirect:/series";
+        return "redirect:/temporada"+id;
     }
 
     @RequestMapping(value = "/editarTemporada{id}", method = RequestMethod.GET)
@@ -89,18 +90,17 @@ public class TemporadaController {
     public String editarTemporadaPost(Temporada temporada) {
         Temporada temporadaBD = temporadaRepository.findById(temporada.getId());
         temporadaBD.setNome(temporada.getNome());
+        Serie serie = temporadaBD.getSerie();
         temporadaRepository.save(temporadaBD);
-        return "redirect:/series";
+        return "redirect:/serie"+serie.getId();
     }
-
 
     @RequestMapping("/deletarTemp")
     public String deletarTemporada(long id) {
         Temporada temporada = temporadaRepository.findById(id);
+        Serie serie = temporada.getSerie();
         temporadaRepository.delete(temporada);
-        return "redirect:/series";
+        return "redirect:/serie"+serie.getId();
     }
-
-
 
 }

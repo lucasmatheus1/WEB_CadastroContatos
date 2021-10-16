@@ -15,23 +15,42 @@
 </head>
 
 <body>
-<h1 class="container">Editar Temporada:</h1>
-<h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
+    <header>
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#" class="brand-logo center">iSeries</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <form th:action="@{/logout}" method="post">
+                            <button class="waves-effect waves-light btn" type="submit">
+                                SAIR</button>
+                        </form>
+                    </li>
+                    <li><a href="collapsible.html"></a></li>
+                    <li><a href="collapsible.html"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-<br/>
+    <br>
+    <h4 class="container">Editar Temporada:</h4>
+    <br>
+    <h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
 
-<form class="container" method="post">
-    <div class="row">
-        <div class="input-field col ">
-            <input type="text" th:value="${temporada.nome}" name="nome"/>
-            <label class="active">Nome</label>
+    <br/>
+
+    <form class="container" method="post">
+        <div class="row">
+            <div class="input-field col s4">
+                <input type="text" th:value="${temporada.nome}" name="nome"/>
+                <label class="active">Nome</label>
+            </div>
+            <div class="input-field col s4"><button class="waves-effect waves-light btn" type="submit">Atualizar</button></div>
         </div>
-    </div>
+    </form>
 
-    <button class="waves-effect waves-light btn" type="submit">Atualizar</button>
-</form>
-
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>

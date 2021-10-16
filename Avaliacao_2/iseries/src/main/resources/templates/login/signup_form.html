@@ -12,10 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+
+    <header>
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#" class="brand-logo center">Cadastro de Usuário</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br><br>
     <div class="container text-center">
-        <div>
-            <h1>Cadastro de Usuário</h1>
-        </div>
         <form th:action="@{/process_register}" th:object="${user}"
               method="post" style="max-width: 600px; margin: 0 auto;">
             <div class="m-3">
@@ -30,7 +39,8 @@
                     <label class="col-4 col-form-label">Password: </label>
                     <div class="col-8">
                         <input type="password" th:field="*{password}" class="form-control"
-                               required minlength="6" maxlength="10"/>
+                               pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{5,50}$).*$"
+                               required minlength="5" />
                     </div>
                 </div>
 
@@ -39,6 +49,7 @@
                     <div class="col-8">
                         <input type="text" th:field="*{firstName}" class="form-control"
                                required minlength="2" maxlength="20"/>
+
                     </div>
                 </div>
 
