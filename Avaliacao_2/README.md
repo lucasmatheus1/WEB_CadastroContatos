@@ -18,11 +18,3 @@ https://iseriesapp.herokuapp.com/
 * **Lucas Matheus**
 * **Marcelo Filho**
 * **Moabe Barbosa** 
-
-
-
-
-
-
-
-
