@@ -1,6 +1,7 @@
 package br.edu.ifpb.iseries.controllers;
 
-import br.edu.ifpb.iseries.models.User;
+
+import br.edu.ifpb.iseries.models.Usuario;
 import br.edu.ifpb.iseries.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,12 +18,12 @@ public class LoginController {
 
     @RequestMapping(value= "/register", method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new Usuario());
         return "login/signup_form";
     }
 
     @RequestMapping(value = "/process_register", method = RequestMethod.POST)
-    public String processRegister(User user) {
+    public String processRegister(Usuario user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);

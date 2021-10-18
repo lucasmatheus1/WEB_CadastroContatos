@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class User implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class User implements Serializable {
 
     private String lastName;
 
-    @OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy= "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Serie> series;
 
     public Long getId() {

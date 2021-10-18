@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
-    private User user;
+    private Usuario user;
 
-    public CustomUserDetails(User user) {
+    public CustomUserDetails(Usuario user) {
         this.user = user;
     }
 

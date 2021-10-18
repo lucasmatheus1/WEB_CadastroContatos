@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<style type="text/css">
+
+</style>
+
 <head>
     <meta charset="UTF-8">
 
@@ -11,7 +16,7 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
+<body bgcolor="#1B1D21">
 
     <header>
         <nav>
@@ -31,14 +36,14 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">E-mail: </label>
                     <div class="col-8">
-                        <input type="email" th:field="*{email}" class="form-control" required />
+                        <input type="email" th:field="*{email}" class="form-control white-text"/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Password: </label>
                     <div class="col-8">
-                        <input type="password" th:field="*{password}" class="form-control"
+                        <input type="password" th:field="*{password}" class="form-control white-text"
                                pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W+)(?=^.{5,50}$).*$"
                                required minlength="5" />
                     </div>
@@ -47,7 +52,7 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">First Name: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{firstName}" class="form-control"
+                        <input type="text" th:field="*{firstName}" class="form-control white-text"
                                required minlength="2" maxlength="20"/>
 
                     </div>
@@ -56,13 +61,13 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Last Name: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{lastName}" class="form-control"
+                        <input type="text" th:field="*{lastName}" class="form-control white-text"
                                required minlength="2" maxlength="20" />
                     </div>
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <button type="submit" class="btn btn-primary red">Cadastrar</button>
                 </div>
             </div>
         </form>

@@ -10,10 +10,20 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-  <body>
+<body bgcolor="#1B1D21">
+  <header>
+    <nav>
+      <div class="nav-wrapper black">
+        <a class="brand-logo center">
+          <span class="red-text text-darken-2">i</span>
+          <span class="white-text text-darken-2">Series</span>
+        </a>
+      </div>
+    </nav>
+  </header>
     <div class="container text-center">
-      <h3>Cadastrado com sucesso!</h3>
-      <h4><a th:href="@{/login}">Clique aqui para acessar</a></h4>
+      <h3 class="white-text">Cadastrado com sucesso!</h3>
+      <h4><a class="red-text" th:href="@{/login}">Clique aqui para entrar!</a></h4>
     </div>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>

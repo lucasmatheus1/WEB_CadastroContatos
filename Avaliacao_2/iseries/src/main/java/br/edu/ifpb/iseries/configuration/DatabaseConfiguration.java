@@ -2,6 +2,7 @@ package br.edu.ifpb.iseries.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
@@ -10,6 +11,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import javax.sql.DataSource;
 
 @Configuration
+@Profile("dev")
 public class DatabaseConfiguration {
 
     @Bean
@@ -32,5 +34,6 @@ public class DatabaseConfiguration {
         adapter.setPrepareConnection(true);
         return adapter;
     }
+
 
 }

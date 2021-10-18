@@ -23,7 +23,7 @@ public class Serie implements Serializable {
     private List<Temporada> temporadas;
 
     @ManyToOne
-    private User user;
+    private Usuario user;
 
     public long getId() {
         return id;
@@ -65,11 +65,11 @@ public class Serie implements Serializable {
         this.temporadas = temporadas;
     }
 
-    public User getUser() {
+    public Usuario getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Usuario user) {
         this.user = user;
     }
 

@@ -14,15 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<body>
+<body bgcolor="#1B1D21">
     <header>
         <nav>
             <div class="nav-wrapper black">
-                <a href="#" class="brand-logo center">iSeries</a>
+                <a class="brand-logo center">
+                    <span class="red-text text-darken-2">i</span>
+                    <span class="white-text text-darken-2">Series</span>
+                </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
                         <form th:action="@{/logout}" method="post">
-                            <button class="waves-effect waves-light btn" type="submit">
+                            <button class="waves-effect waves-light btn red" type="submit">
                                 SAIR</button>
                         </form>
                     </li>
@@ -34,19 +37,19 @@
     </header>
 
     <br>
-    <h4 class="container">Editar Temporada:</h4>
+    <h4 class="container white-text">Editar Temporada:</h4>
     <br>
-    <h3 class="container"><a href="/series" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
+    <h3 class="container"><a href="/series" class="waves-effect waves-light btn red"><i class="material-icons left">format_list_bulleted</i>Lista de Séries</a></h3>
 
     <br/>
 
     <form class="container" method="post">
         <div class="row">
             <div class="input-field col s4">
-                <input type="text" th:value="${temporada.nome}" name="nome"/>
+                <input class="white-text" type="text" th:value="${temporada.nome}" name="nome"/>
                 <label class="active">Nome</label>
             </div>
-            <div class="input-field col s4"><button class="waves-effect waves-light btn" type="submit">Atualizar</button></div>
+            <div class="input-field col s4"><button class="waves-effect waves-light btn red" type="submit">Atualizar</button></div>
         </div>
     </form>
 

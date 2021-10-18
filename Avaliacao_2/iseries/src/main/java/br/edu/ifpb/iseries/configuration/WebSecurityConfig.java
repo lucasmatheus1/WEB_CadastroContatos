@@ -46,21 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-//        http
-//                .authorizeRequests()
-//                    .antMatchers("/", "/register", "/login").authenticated()
-//                    .anyRequest().authenticated()
-//                    .and()
-//                .formLogin()
-//                    .permitAll()
-//                    .and()
-//                .logout()
-//                    .permitAll();
-
-
-
         http.authorizeRequests()
-                .antMatchers("/series", "/cadastrarSerie").authenticated()
+                .antMatchers("/series", "/cadastrarSerie", "/serie**", "/temporada*", "/editarEpisodio*", "/editarSerie*", "/editarTemporada*").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

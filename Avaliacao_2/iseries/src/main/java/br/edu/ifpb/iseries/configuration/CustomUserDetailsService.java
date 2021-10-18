@@ -1,7 +1,7 @@
 package br.edu.ifpb.iseries.configuration;
 
 import br.edu.ifpb.iseries.models.CustomUserDetails;
-import br.edu.ifpb.iseries.models.User;
+import br.edu.ifpb.iseries.models.Usuario;
 import br.edu.ifpb.iseries.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +15,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findByEmail(username);
+        Usuario user = userRepo.findByEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException("Usuário não encontrado!");
         }

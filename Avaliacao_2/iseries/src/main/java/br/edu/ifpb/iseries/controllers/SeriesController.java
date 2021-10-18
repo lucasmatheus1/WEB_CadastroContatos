@@ -3,16 +3,14 @@ package br.edu.ifpb.iseries.controllers;
 import br.edu.ifpb.iseries.models.Episodio;
 import br.edu.ifpb.iseries.models.Serie;
 import br.edu.ifpb.iseries.models.Temporada;
-import br.edu.ifpb.iseries.models.User;
+import br.edu.ifpb.iseries.models.Usuario;
 import br.edu.ifpb.iseries.repository.EpisodioRepository;
 import br.edu.ifpb.iseries.repository.SeriesRepository;
 import br.edu.ifpb.iseries.repository.TemporadaRepository;
 import br.edu.ifpb.iseries.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -73,7 +71,7 @@ public class SeriesController {
         }
         serie.setTemporadas(temporadas);
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findByEmail(email);
+        Usuario user = userRepository.findByEmail(email);
         serie.setUser(user);
         seriesRepository.save(serie);
 
@@ -83,8 +81,9 @@ public class SeriesController {
     @RequestMapping("/series")
     public ModelAndView listaSeries(){
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findByEmail(email);
+        Usuario user = userRepository.findByEmail(email);
         ModelAndView mv = new ModelAndView("dashboard");
+        mv.addObject("user", user);
         Iterable<Serie> series = seriesRepository.findByUser(user);
         mv.addObject("series", series);
         return mv;

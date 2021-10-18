@@ -15,16 +15,19 @@
 </head>
 
 
-<body>
 
+<body bgcolor="#1B1D21">
     <header>
         <nav>
             <div class="nav-wrapper black">
-                <a href="#" class="brand-logo center">iSeries</a>
+                <a class="brand-logo center">
+                    <span class="red-text text-darken-2">i</span>
+                    <span class="white-text text-darken-2">Series</span>
+                </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
                         <form th:action="@{/logout}" method="post">
-                            <button class="waves-effect waves-light btn" type="submit">
+                            <button class="waves-effect waves-light btn red" type="submit">
                                 SAIR</button>
                         </form>
                     </li>
@@ -36,13 +39,13 @@
     </header>
 
     <h2 class="center">
-        <a href="/series" class="waves-effect waves-light btn">
+        <a href="/series" class="waves-effect waves-light btn red">
             <i class="material-icons left">
                 format_list_bulleted
             </i>
             Lista de Séries
         </a>
-        <a th:href="${(#mvc.url('EC#adicionarEpisodio').arg(0, temporada.id)).build()}" class="waves-effect waves-light btn">
+        <a th:href="${(#mvc.url('EC#adicionarEpisodio').arg(0, temporada.id)).build()}" class="waves-effect waves-light btn red">
             <i class="material-icons left">
                 add_circle_outline
             </i>
@@ -57,43 +60,44 @@
         <table class="container">
             <thead>
             <tr>
-                <th>Nome do EP</th>
-                <th>Assistiu?</th>
-                <th>Editar</th>
-                <th>Deletar</th>
+                <th width="500"></th>
+                <th class="white-text" width="500"></th>
+                <th ></th>
+                <th></th>
             </tr>
             </thead>
 
             <tbody>
             <tr th:each="episodio : ${episodios}">
-                <td><span th:text="${episodio.nome}"></span></td>
+                <td><span class="white-text" th:text="${episodio.nome}"></span></td>
                 <td>
                     <div class="switch">
                         <div th:if="${episodio.assistiu}">
                             <p>
                                 <label>
+
                                     <input type="checkbox" th:value="${episodio.id}" name="idEpisodio" checked="checked"/>
-                                    <span></span>
+                                    <span>Assistiu?</span>
                                 </label>
                             </p>
                         </div>
                         <div th:unless="${episodio.assistiu}">
                             <p>
                                 <label>
-                                    <input type="checkbox" th:value="${episodio.id}" name="idEpisodio"/>
-                                    <span></span>
+                                    <input class="white-text" type="checkbox" th:value="${episodio.id}" name="idEpisodio"/>
+                                    <span>Assistiu?</span>
                                 </label>
                             </p>
                         </div>
                     </div>
                 </td>
-                <td><a th:href="${(#mvc.url('EC#editarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons">edit</i></span></a></td>
-                <td><a th:href="${(#mvc.url('EC#deletarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons">delete</i></span></a></td>
+                <td><a th:href="${(#mvc.url('EC#editarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons white-text">edit</i></span></a></td>
+                <td><a th:href="${(#mvc.url('EC#deletarEpisodio').arg(0, episodio.id)).build()}"><span><i class="material-icons white-text">delete</i></span></a></td>
             </tr>
             </tbody>
         </table>
         <br>
-        <h4 class="center" ><button class="waves-effect waves-light btn " type="submit">Salvar</button></h4>
+        <h4 class="center" ><button class="waves-effect waves-light btn red" type="submit">Salvar</button></h4>
 
     </form>
 
